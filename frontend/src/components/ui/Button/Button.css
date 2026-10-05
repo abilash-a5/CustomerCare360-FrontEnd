@@ -1,0 +1,75 @@
+.cc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.cc-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.cc-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.cc-button--small {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.cc-button--medium {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+}
+
+.cc-button--large {
+  padding: 0.9rem 1.35rem;
+  font-size: 1.05rem;
+}
+
+.cc-button--primary {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.cc-button--secondary {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.cc-button--outline {
+  background-color: transparent;
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.cc-button--success {
+  background-color: #16a34a;
+  color: #ffffff;
+  border-color: #16a34a;
+}
+
+.cc-button--danger {
+  background-color: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+}
+
+.cc-button--link {
+  background-color: transparent;
+  color: #2563eb;
+  border-color: transparent;
+  text-decoration: underline;
+  box-shadow: none;
+}
