@@ -1,6 +1,401 @@
+:root {
+  --primary-violet: #4a3267;
+  --secondary-pink: #de638a;
+  --soft-pink: #f7b9c4;
+  --light-pink: #f3d9e5;
+  --light-violet: #c6bade;
+  --white: #ffffff;
+  --black: #111111;
+  --page-background: #faf8fb;
+  --text-secondary: #666666;
+
+  --sidebar-width: 230px;
+  --header-height: 70px;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
 @import "tailwindcss";
 
 body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background-color: var(--page-background);
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.main-layout {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--page-background);
+}
+
+.main-content {
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  padding-top: var(--header-height);
+  background-color: var(--page-background);
+  transition: margin-left 0.25s ease;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  background-color: var(--white);
+  border-bottom: 1px solid rgba(74, 50, 103, 0.1);
+
+  box-shadow: 0 2px 10px rgba(74, 50, 103, 0.06);
+
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
   margin: 0;
-  font-family: Inter, sans-serif;
+
+  color: var(--primary-violet);
+
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* =========================
+   PROFILE BUTTON
+========================= */
+
+.profile-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: var(--primary-violet);
+  color: var(--white);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 3px 8px rgba(74, 50, 103, 0.2);
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.profile-button:hover {
+  background-color: var(--secondary-pink);
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 12px rgba(74, 50, 103, 0.25);
+}
+
+.profile-button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  position: fixed;
+
+  top: var(--header-height);
+  left: 0;
+
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height));
+
+  background-color: var(--light-pink);
+
+  border-right: 1px solid rgba(74, 50, 103, 0.12);
+
+  box-shadow: 3px 0 10px rgba(74, 50, 103, 0.04);
+
+  overflow-y: auto;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  padding-top: 8px;
+}
+
+/* =========================
+   SIDEBAR LINKS
+========================= */
+
+.sidebar-link {
+  position: relative;
+
+  width: 100%;
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 18px;
+
+  border: 0;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+
+  background-color: transparent;
+  color: var(--black);
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: var(--soft-pink);
+  padding-left: 23px;
+}
+
+/* active menu */
+
+.sidebar-link-active {
+  background-color: var(--white);
+
+  color: var(--primary-violet);
+
+  font-weight: 700;
+}
+
+/* Small violet active indicator */
+
+.sidebar-link-active::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 18%;
+
+  width: 4px;
+  height: 64%;
+
+  background-color: var(--primary-violet);
+
+  border-radius: 0 5px 5px 0;
+}
+
+/* =========================
+   SIDEBAR ARROW
+========================= */
+
+.sidebar-arrow {
+  margin-right: 6px;
+
+  color: var(--secondary-pink);
+
+  font-size: 18px;
+  font-weight: 800;
+
+  transition: transform 0.2s ease;
+}
+
+.sidebar-link:hover .sidebar-arrow {
+  transform: translateX(3px);
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page-container {
+  width: 100%;
+
+  padding: 35px 40px;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-title {
+  margin: 0;
+
+  color: var(--primary-violet);
+
+  font-size: 30px;
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+.page-description {
+  margin-top: 8px;
+  margin-bottom: 0;
+
+  max-width: 700px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================
+   PAGE CONTENT
+========================= */
+
+.page-content {
+  width: 100%;
+
+  margin-top: 28px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  padding: 24px;
+
+  background-color: var(--white);
+
+  border: 1px solid rgba(74, 50, 103, 0.1);
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 12px rgba(74, 50, 103, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+
+  color: var(--primary-violet);
+
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--light-violet);
+
+  box-shadow:
+    0 10px 22px rgba(74, 50, 103, 0.09),
+    0 3px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: var(--light-pink);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--light-violet);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-violet);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 190px;
+  }
+
+  .header {
+    padding: 0 20px;
+  }
+
+  .header-title {
+    font-size: 19px;
+  }
+
+  .page-container {
+    padding: 25px 20px;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+
+  .sidebar-link {
+    font-size: 14px;
+    min-height: 62px;
+  }
 }

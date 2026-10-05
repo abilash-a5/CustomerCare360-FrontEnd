@@ -1,7 +1,12 @@
-import AppRoutes from "./routes/AppRoutes";
+import MainLayout from './components/layout/MainLayout'
+import PageContainer from './components/layout/PageContainer'
 
 function App() {
-  return <AppRoutes />;
+  return (
+    <MainLayout>
+      
+    </MainLayout>
+  )
 }
 
-export default App;
+export default App
